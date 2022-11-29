@@ -8,6 +8,7 @@ import {
   Input,
   Row,
   Button,
+  CardHeader,
 } from "reactstrap";
 import { useCallback, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
@@ -140,8 +141,9 @@ function App() {
         next={() => debouncedFetchBooks({ ...filters, page: page + 1 })}
         hasMore={booksData?.booksCount > booksData?.books?.length}
       >
-        <Container>
+        <Container className="my-2">
           <Card>
+            <CardHeader className="text-center fs-3">{booksData.booksCount || 0} result(s) found</CardHeader>
             <CardBody>
               <Table striped className="text-center align-middle">
                 <thead>
